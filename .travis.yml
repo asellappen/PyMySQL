@@ -64,7 +64,7 @@ matrix:
         - TEST_AUTH=yes
       python: "3.8"
       arch: ppc64le
- # no active mysql docker image for ppc64le hence failing, "docker pull ppc64le/mysql " is not active (reference at https://hub.docker.com/r/ppc64le/mysql)       
+# no active mysql docker image for ppc64le hence failing, "docker pull ppc64le/mysql " is not active (reference at https://hub.docker.com/r/ppc64le/mysql)       
   allow_failures:
     - arch: ppc64le
       env:
@@ -82,8 +82,8 @@ install:
   - pip install -U coveralls coverage cryptography PyNaCl pytest pytest-cov
 
 before_script:
-  # community moved out of travis and removed .travis folder at current version ,so downloading initializedb.sh script from v0.10.1 and making changes for folder references 
-  # from .travis to  ci where database.json file can be read for running test scripts
+# community moved out of travis and removed .travis folder at current version ,so downloading initializedb.sh script from v0.10.1 and  
+# making changes for folder references from .travis to  ci where database.json file can be read for running test scripts
   - wget https://github.com/PyMySQL/PyMySQL/archive/v0.10.1.tar.gz
   - tar -xvf v0.10.1.tar.gz
   - cp PyMySQL-0.10.1/.travis/initializedb.sh .

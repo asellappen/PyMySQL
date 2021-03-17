@@ -51,4 +51,4 @@ mysql -uroot -e 'create database test2 DEFAULT CHARACTER SET utf8mb4'
 mysql -u root -e "create user test2           identified ${WITH_PLUGIN} by 'some password'; grant all on test2.* to test2;"
 mysql -u root -e "create user test2@localhost identified ${WITH_PLUGIN} by 'some password'; grant all on test2.* to test2@localhost;"
 
-cp /ci/docker.json pymysql/tests/databases.json
+cp ci/docker.json pymysql/tests/databases.json

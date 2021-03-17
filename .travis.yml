@@ -82,12 +82,12 @@ install:
   - pip install -U coveralls coverage cryptography PyNaCl pytest pytest-cov
 
 before_script:
-  - ./ci/initializedb.sh
+  # initializedb.sh newly added for travis build  
+  - ./initializedb.sh
   - python -VV
   - rm -f ~/.my.cnf # set in .travis.initialize.db.sh for the above commands - we should be using database.json however
   - export COVERALLS_PARALLEL=true
 script:
-  # test_connection.py failing with syntax error   KeyError: 'database' during execution current_db = self.databases[0]["database"] in both arch  --ignore=pymysql/tests/test_connection.py 
   - pytest -v pymysql
   - if [ "${TEST_AUTH}" = "yes" ];
     then pytest -v --cov --cov-config .coveragerc tests/test_auth.py;
